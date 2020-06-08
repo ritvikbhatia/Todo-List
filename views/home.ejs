@@ -1,5 +1,34 @@
 
     <link rel="stylesheet" href='/css/home.css'>
-    <form action="">
-        <input type="text" placeholder="What do you need to do" name="task" aria-label="description">
-    </form>
+    <div id="mainForm">
+        <form action="">
+            <div class="row">
+
+                <div class="col">
+                    <label for="description">description</label>
+                    <input type="text" placeholder="What do you need to do" name="task" id="description">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+        
+                    <label for="category">category</label>
+                    <select class="form-control form-control-lg" id="category">
+                        <option>Personal</option>
+                        <option>Work</option>
+                        <option>School</option>
+                        <option>Cleaning</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
+            </div>
+        </form>
+    </div>

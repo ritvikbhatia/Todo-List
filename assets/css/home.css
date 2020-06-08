@@ -1,4 +1,8 @@
-body {
-  background-color: green; }
-  body p {
-    color: #000; }
+#mainForm {
+  width: 80vw;
+  margin-left: 10vw;
+  padding: 1%;
+  border: 2px solid black; }
+  #mainForm #description {
+    width: 100%;
+    font-size: large; }
