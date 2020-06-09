@@ -6,3 +6,10 @@
   #mainForm #description {
     width: 100%;
     font-size: large; }
+  #mainForm #date {
+    width: 100%;
+    height: 40px; }
+  #mainForm #buttons {
+    display: flex;
+    padding: 2%;
+    justify-content: space-evenly; }
