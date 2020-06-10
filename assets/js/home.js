@@ -10,9 +10,9 @@ let addTask=function(){
             type: 'post',
                 url: '/addTask',
                 data: newform.serialize(),
-                success: function(data){
+                success: async function(data){
                     console.log(data.data);        
-                    displayonpage(data.data);
+                    await displayonpage(data.data);
 
                 }, error: function(error){
                     console.log(error.responseText);
@@ -26,12 +26,12 @@ let showTasks=function(){
         {
             type: 'get',
                 url: '/showTasks',
-                success: function(data){
+                success:  function(data){
                     console.log(data.data);
                     for(let i of data.data)
                         {
                             console.log(i);
-                            displayonpage(i);
+                             displayonpage(i);
                         }
 
                 }, error: function(error){
@@ -66,12 +66,12 @@ function displayonpage(data)
 </div>`);
 }
 
-function deleteTasks(){
+ function deleteTasks(){
     $("#deltask").click(function(){
         var selectedTasks = new Array();
         var n = $(".form-check-input:checked").length;
         if (n > 0){
-            jQuery(".form-check-input:checked").each(function(){
+             jQuery(".form-check-input:checked").each(function(){
                 selectedTasks.push($(this).val());
             });
         }
@@ -82,13 +82,13 @@ function deleteTasks(){
                     "del":selectedTasks
                 },
                     url: '/delTasks',
-                    success: function(data){
+                    success: async function(data){
                         console.log(data.data);
                         $('#Taskscontainer').empty();
                         for(let i of data.data)
                             {
                                 console.log(i);
-                                displayonpage(i);
+                                await displayonpage(i);
                             }
     
                     }, error: function(error){

@@ -10,7 +10,7 @@ module.exports.add=async function(req,res){
     if(req.xhr)
     {
         res.status(200).json({
-            data:req.body,
+            data:task,
             message:"success xhr"
         })
     }
