@@ -47,6 +47,9 @@ function displayonpage(data)
 {
     console.log(data);
     $('#Taskscontainer').append(`<div id='taskbox'>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    </div>
     <div>
         <h3>
             ${data.description}
