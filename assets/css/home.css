@@ -26,5 +26,7 @@
       padding: 2%; }
   #taskbox #discbox {
     width: 90%; }
-  #taskbox .form-check {
-    width: 5%; }
+    #taskbox #discbox label {
+      font-size: x-large; }
+  #taskbox input[type=checkbox]:checked + label.strikethrough {
+    text-decoration: line-through; }

@@ -33,9 +33,12 @@
     }
     #discbox{
         width: 90%;
+        label{
+            font-size: x-large;
+        }
     }
-    .form-check{
-        width: 5%;
-    }
+    input[type=checkbox]:checked + label.strikethrough{
+        text-decoration: line-through;
+      }
 
 }

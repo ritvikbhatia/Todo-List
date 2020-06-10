@@ -10,9 +10,9 @@ let addTask=function(){
             type: 'post',
                 url: '/addTask',
                 data: newform.serialize(),
-                success: async function(data){
-                    console.log(data.data);        
-                    await displayonpage(data.data);
+                success: function(data){
+                    // console.log(data.data);        
+                     displayonpage(data.data);
 
                 }, error: function(error){
                     console.log(error.responseText);
@@ -48,13 +48,11 @@ function displayonpage(data)
 {
     console.log(data);
     $('#Taskscontainer').append(`<div id='taskbox'>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="${data._id}" id="defaultCheck1">
-    </div>
     <div id="discbox">
-        <h3>
-            ${data.description}
-        </h3>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="${data._id}" id="defaultCheck1">
+        <label class="form-check-label strikethrough" for="defaultCheck2">${data.description}</label>
+    </div>
         <i class="far fa-calendar-alt"></i> ${data.date.split('T')[0]}
 
     </div>
