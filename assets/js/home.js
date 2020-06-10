@@ -11,6 +11,22 @@ let addTask=function(){
                 url: '/addTask',
                 data: newform.serialize(),
                 success: function(data){
+                    console.log(data.data);        
+                    displayonpage(data.data);
+
+                }, error: function(error){
+                    console.log(error.responseText);
+                }
+
+        }
+    )
+})};
+let showTasks=function(){
+    $.ajax(
+        {
+            type: 'get',
+                url: '/showTasks',
+                success: function(data){
                     console.log(data.data);
                     for(let i of data.data)
                         {
@@ -24,12 +40,8 @@ let addTask=function(){
 
         }
     )
-})};
-function remaining()
-{
-    // data=Task.find({});
-    // console.log(data);
-}
+};
+
 
 function displayonpage(data)
 {
@@ -49,8 +61,10 @@ function displayonpage(data)
     </div>
 </div>`);
 }
-remaining();
+
+showTasks();
 addTask();
+
 
 
 }
