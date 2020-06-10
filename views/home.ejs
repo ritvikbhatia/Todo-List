@@ -1,12 +1,12 @@
 
     <link rel="stylesheet" href='/css/home.css'>
     <div id="mainForm">
-        <form action="">
+        <form action="" id="taskform">
             <div class="row">
 
                 <div class="col">
                     <label for="description">Description</label>
-                    <input type="text" placeholder="What do you need to do" name="task" id="description">
+                    <input type="text" placeholder="What do you need to do" name="description" id="description">
                 </div>
 
             </div>
@@ -16,7 +16,7 @@
                 <div class="col">
         
                     <label for="category">Category</label>
-                    <select class="form-control form-control-lg" id="category">
+                    <select class="form-control form-control-lg" id="category" name="category">
                         <option>Personal</option>
                         <option>Work</option>
                         <option>School</option>
@@ -31,8 +31,11 @@
                 </div>
             </div>
                 <div id="buttons">
-                    <button type="button" class="btn btn-dark"><i class="fas fa-plus"></i> Add Task</button>                    
+                    <button type="submit" id="addtask" class="btn btn-dark"><i class="fas fa-plus"></i> Add Task</button>                    
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete Task</button>
                 </div>
         </form>
     </div>
+
+
+    <script type="text/javascript" src='/js/home.js'></script>

@@ -3,6 +3,16 @@ const express=require('express');
 const sassMiddleware = require('node-sass-middleware');
 const path = require('path');
 const expressLayouts=require('express-ejs-layouts');
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://127.0.0.1/my_database';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+var bodyParser = require('body-parser')
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', function(){
+    console.log('Connected to Database :: MongoDB');
+});
 
 //port defination 
 const port=8000;
@@ -17,6 +27,8 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }));
+
+app.use(bodyParser.urlencoded())
 
 app.use(express.static('./assets'));
 app.set('view engine', 'ejs');
