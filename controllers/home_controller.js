@@ -4,12 +4,12 @@ module.exports.home=function(req,res){
 }
 
 module.exports.add=function(req,res){
-    console.log('****',req.body)
+    // console.log('****',req.body)
     let task=Tasks.create(req.body);
     if(req.xhr)
     {
         res.status(200).json({
-            data:task,
+            data:req.body,
             message:"success xhr"
         })
     }
