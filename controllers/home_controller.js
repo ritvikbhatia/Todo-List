@@ -30,3 +30,22 @@ module.exports.showTasks=async function(req,res){
     }
     return;
 }
+
+module.exports.delTasks=async function(req,res){
+
+    console.log(req.body);
+    for(let i of req.body.del)
+    {
+        await Tasks.findByIdAndDelete(i);
+    }
+    let tasks= await Tasks.find({});
+    // console.log(tasks);
+    if(req.xhr)
+    {
+        res.status(200).json({
+            data:tasks,
+            message:"success xhr"
+        })
+    }
+    return;
+}

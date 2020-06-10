@@ -43,14 +43,15 @@ let showTasks=function(){
 };
 
 
+
 function displayonpage(data)
 {
     console.log(data);
     $('#Taskscontainer').append(`<div id='taskbox'>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <input class="form-check-input" type="checkbox" value="${data._id}" id="defaultCheck1">
     </div>
-    <div>
+    <div id="discbox">
         <h3>
             ${data.description}
         </h3>
@@ -64,6 +65,41 @@ function displayonpage(data)
     </div>
 </div>`);
 }
+
+function deleteTasks(){
+    $("#deltask").click(function(){
+        var selectedTasks = new Array();
+        var n = $(".form-check-input:checked").length;
+        if (n > 0){
+            jQuery(".form-check-input:checked").each(function(){
+                selectedTasks.push($(this).val());
+            });
+        }
+        $.ajax(
+            {
+                type: 'post',
+                data:{
+                    "del":selectedTasks
+                },
+                    url: '/delTasks',
+                    success: function(data){
+                        console.log(data.data);
+                        $('#Taskscontainer').empty();
+                        for(let i of data.data)
+                            {
+                                console.log(i);
+                                displayonpage(i);
+                            }
+    
+                    }, error: function(error){
+                        console.log(error.responseText);
+                    }
+    
+            }
+        )
+    });
+}
+deleteTasks();
 
 showTasks();
 addTask();

@@ -20,7 +20,7 @@
 
 }
 #taskbox{
-    margin:2%;
+    margin:5%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -30,6 +30,12 @@
             background-color: pink;
             padding:2%;
         }
+    }
+    #discbox{
+        width: 90%;
+    }
+    .form-check{
+        width: 5%;
     }
 
 }
