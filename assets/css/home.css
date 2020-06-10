@@ -15,8 +15,12 @@
     justify-content: space-evenly; }
 
 #taskbox {
+  margin: 2%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly; }
   #taskbox div {
     width: 40%; }
+    #taskbox div span {
+      background-color: pink;
+      padding: 2%; }
