@@ -30,6 +30,10 @@ passport.use(new LocalStrategy({
 
 ));
 
+// serializing the user to decide which key is to be kept in the cookies
+passport.serializeUser(function(user, done){
+    done(null, user.id);
+});
 
 // deserializing the user from the key in the cookies
 passport.deserializeUser(function(id, done){
@@ -52,7 +56,7 @@ passport.checkAuthentication = function(req, res, next){
     }
 
     // if the user is not signed in
-    return res.redirect('/users/sign-in');
+    return res.redirect('/sign-in');
 }
 
 passport.setAuthenticatedUser = function(req, res, next){
