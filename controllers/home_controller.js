@@ -49,3 +49,11 @@ module.exports.delTasks=async function(req,res){
     }
     return;
 }
+
+module.exports.signup=function(req,res){
+    return res.render('user_sign_up.ejs');
+}
+
+module.exports.signin=function(req,res){
+    return res.render('user_sign_in.ejs');
+}
