@@ -9,5 +9,7 @@ router.get('/showTasks',home_controller.showTasks);
 router.post('/delTasks',home_controller.delTasks);
 router.get('/signup',home_controller.signup);
 router.get('/signin',home_controller.signin);
+router.post('/create-session',home_controller.createSession);
+router.post('/create',home_controller.create);
 
 module.exports=router;
