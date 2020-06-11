@@ -12,6 +12,10 @@ var bodyParser = require('body-parser')
 const passport = require('passport');
 const passportLocal = require('./config/passport-local');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
+const cookieParser = require('cookie-parser');
+
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -34,7 +38,7 @@ app.use(sassMiddleware({
 }));
 
 app.use(bodyParser.urlencoded())
-
+app.use(cookieParser());
 
 app.use(express.static('./assets'));
 app.set('view engine', 'ejs');
@@ -68,6 +72,10 @@ app.use(passport.setAuthenticatedUser);
 
 
 app.use(expressLayouts);
+
+
+app.use(flash());
+app.use(customMware.setFlash);
 
 app.set("layout extractScripts", true)
 app.set("layout extractStyles", true)
