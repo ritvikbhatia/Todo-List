@@ -11,7 +11,6 @@ var db = mongoose.connection;
 var bodyParser = require('body-parser')
 const passport = require('passport');
 const passportLocal = require('./config/passport-local');
-const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo')(session);
 
 //Bind connection to error event (to get notification of connection errors)
@@ -35,7 +34,6 @@ app.use(sassMiddleware({
 }));
 
 app.use(bodyParser.urlencoded())
-app.use(cookieParser());
 
 
 app.use(express.static('./assets'));
