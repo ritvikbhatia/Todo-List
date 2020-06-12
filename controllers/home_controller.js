@@ -17,10 +17,11 @@ module.exports.home=function(req,res){
 //adding  tasks to db
 
 module.exports.add=async function(req,res){
+    console.log(req.body)
     let task=await Tasks.create(req.body);
     if(req.xhr)
     {
-        req.flash('success', 'Task Updated');
+        // req.flash('success', 'Task Updated');
         res.status(200).json({
             data:task,
             message:"success xhr"
@@ -34,8 +35,9 @@ module.exports.add=async function(req,res){
 //Displaying tasks
 
 module.exports.showTasks=async function(req,res){
-
-    let tasks= await Tasks.find({});
+    // console.log(req.user);
+    
+    let tasks= await Tasks.find({"user":req.user._id});
     if(req.xhr)
     {
         res.status(200).json({
@@ -56,10 +58,11 @@ module.exports.delTasks=async function(req,res){
     {
         await Tasks.findByIdAndDelete(i);
     }
-    let tasks= await Tasks.find({});
+    let tasks= await Tasks.find({"user":req.user._id});
+    // req.flash('error', 'Task Deleted');
     if(req.xhr)
     {
-        req.flash('success', 'Tasks Deleted');
+        
         res.status(200).json({
             data:tasks,
             message:"success xhr"
@@ -73,10 +76,10 @@ module.exports.delTasks=async function(req,res){
 
 module.exports.delAll=async function(req,res){
 
-    await Tasks.deleteMany({});
+    await Tasks.deleteMany({"user":req.user._id});
+    // req.flash('error', 'Tasks Deleted');
     if(req.xhr)
     {
-        req.flash('success', 'Tasks Deleted');
         res.status(200).json({
             message:"success xhr"
         })
