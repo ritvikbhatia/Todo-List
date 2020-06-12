@@ -5,14 +5,21 @@
   border: 2px solid black; }
   #mainForm #description {
     width: 100%;
+    height: 45px;
     font-size: large; }
   #mainForm #date {
     width: 100%;
-    height: 40px; }
+    height: 45px; }
   #mainForm #buttons {
     display: flex;
     padding: 2%;
-    justify-content: space-evenly; }
+    justify-content: center; }
+    #mainForm #buttons button {
+      margin-left: 2%;
+      margin-right: 2%; }
+  #mainForm label {
+    font-weight: bold;
+    margin: 1%; }
 
 #taskbox {
   margin: 5%;
@@ -25,7 +32,8 @@
       background-color: pink;
       padding: 2%; }
   #taskbox #discbox {
-    width: 90%; }
+    width: 90%;
+    margin-left: 10%; }
     #taskbox #discbox label {
       font-size: x-large; }
   #taskbox input[type=checkbox]:checked + label.strikethrough {

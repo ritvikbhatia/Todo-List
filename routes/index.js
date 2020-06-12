@@ -8,6 +8,7 @@ router.get('/',passport.checkAuthentication, home_controller.home);
 router.post('/addTask',home_controller.add);
 router.get('/showTasks',home_controller.showTasks);
 router.post('/delTasks',home_controller.delTasks);
+router.post('/delAll',home_controller.delAll);
 router.get('/signup',home_controller.signup);
 router.get('/signin',home_controller.signin);
 router.post('/create',home_controller.create);

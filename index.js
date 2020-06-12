@@ -1,11 +1,12 @@
+/* **********************************************************************************/
 //required modules
+/* **********************************************************************************/
+
 const express=require('express');
 const sassMiddleware = require('node-sass-middleware');
 const path = require('path');
 const expressLayouts=require('express-ejs-layouts');
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/my_database';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
 const session = require('express-session');
 var db = mongoose.connection;
 var bodyParser = require('body-parser')
@@ -16,6 +17,10 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const cookieParser = require('cookie-parser');
 
+/* **********************************************************************************/
+
+var mongoDB = 'mongodb://127.0.0.1/my_database';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

@@ -1,6 +1,8 @@
 
 {
-    
+/* **********************************************************************************/
+//Add Task function 
+
 let addTask=function(){
     let newform=$('#taskform');
     newform.submit(function(e){
@@ -10,10 +12,8 @@ let addTask=function(){
             type: 'post',
                 url: '/addTask',
                 data: newform.serialize(),
-                success: function(data){
-                    // console.log(data.data);        
+                success: function(data){        
                      displayonpage(data.data);
-
                 }, error: function(error){
                     console.log(error.responseText);
                 }
@@ -21,6 +21,10 @@ let addTask=function(){
         }
     )
 })};
+
+/* **********************************************************************************/
+//Show Tasks Function
+
 let showTasks=function(){
     $.ajax(
         {
@@ -43,11 +47,13 @@ let showTasks=function(){
 };
 
 
+/* **********************************************************************************/
+//Display on page function
 
 function displayonpage(data)
 {
     console.log(data);
-    $('#Taskscontainer').append(`<div id='taskbox'>
+    $('#Taskscontainer').prepend(`<div id='taskbox'>
     <div id="discbox">
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="${data._id}" id="defaultCheck1">
@@ -63,6 +69,9 @@ function displayonpage(data)
     </div>
 </div>`);
 }
+
+/* **********************************************************************************/
+//Delete Task function
 
  function deleteTasks(){
     $("#deltask").click(function(){
@@ -97,11 +106,31 @@ function displayonpage(data)
         )
     });
 }
-deleteTasks();
+/* **********************************************************************************/
+//Delete All function
 
+function deleteAll(){
+    $("#delAll").click(function(){
+        console.log('inside')
+        $.ajax(
+            {
+                type: 'post',
+                    url: '/delAll',
+                    success: async function(){
+                        $('#Taskscontainer').empty(); 
+    
+                    }, error: function(error){
+                        console.log(error.responseText);
+                    }
+            }
+        )
+    });
+}
+/* **********************************************************************************/
+//Function Calls
+deleteAll();
+deleteTasks();
 showTasks();
 addTask();
-
-
 
 }
