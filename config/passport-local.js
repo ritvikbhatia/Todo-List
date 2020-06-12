@@ -1,7 +1,5 @@
 const passport = require('passport');
-
 const LocalStrategy = require('passport-local').Strategy;
-
 const User = require('../models/user');
 
 
@@ -17,12 +15,10 @@ passport.use(new LocalStrategy({
                 console.log('error', err);
                 return done(err);
             }
-
             if (!user || user.password != password){
                 console.log('error', 'Invalid Username/Password');
                 return done(null, false);
             }
-
             return done(null, user);
         });
     }
@@ -42,7 +38,6 @@ passport.deserializeUser(function(id, done){
             console.log('Error in finding user --> Passport');
             return done(err);
         }
-
         return done(null, user);
     });
 });
@@ -64,10 +59,8 @@ passport.setAuthenticatedUser = function(req, res, next){
         // req.user contains the current signed in user from the session cookie and we are just sending this to the locals for the views
         res.locals.user = req.user;
     }
-
     next();
 }
 
-
-
+//exporting passport
 module.exports = passport;

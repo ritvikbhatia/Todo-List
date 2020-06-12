@@ -1,6 +1,8 @@
+// ***************************************************
+// required modules
 const mongoose = require('mongoose');
 
-
+//user Schema
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -23,4 +25,5 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+//exports user
 module.exports = User;

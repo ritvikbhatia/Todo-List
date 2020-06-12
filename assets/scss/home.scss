@@ -34,7 +34,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     div{
-        width: 40%;
+        width: 30%;
         span{
             background-color: pink;
             padding:2%;
@@ -45,6 +45,11 @@
         margin-left: 10%;
         label{
             font-size: x-large;
+            width: auto;
+            overflow: visible;
+        }
+        .form-check-label{
+            width: 400%;
         }
     }
     input[type=checkbox]:checked + label.strikethrough{

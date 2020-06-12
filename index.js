@@ -18,7 +18,7 @@ const customMware = require('./config/middleware');
 const cookieParser = require('cookie-parser');
 
 /* **********************************************************************************/
-
+//setting up mongo DB
 var mongoDB = 'mongodb://127.0.0.1/my_database';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 
@@ -30,8 +30,10 @@ db.once('open', function(){
 
 //port defination 
 const port=8000;
-
 const app=express();
+
+// *******************************************************************************
+// using node sass middleware to convert scss to css
 
 app.use(sassMiddleware({
     src: './assets/scss',
@@ -42,12 +44,18 @@ app.use(sassMiddleware({
     prefix: '/css'
 }));
 
+// **********************************************************************************
+
 app.use(bodyParser.urlencoded())
 app.use(cookieParser());
 
+//setting up ejs and view paths
 app.use(express.static('./assets'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+// ******************************************************************************
+// setting up mongostore and session cookies
 
 app.use(session({
     name: 'codeial',
@@ -70,23 +78,22 @@ app.use(session({
     )
 }));
 
+// ************************************************************************************
+// fire passport .js
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(passport.setAuthenticatedUser);
 
 
 app.use(expressLayouts);
 
-
+//use to display flash notifications 
 app.use(flash());
 app.use(customMware.setFlash);
 
+//extracting .css and .js files from the ejs body
 app.set("layout extractScripts", true)
 app.set("layout extractStyles", true)
 
-
-
 app.use('/',require('./routes/index'))
-
 app.listen(port);

@@ -27,7 +27,7 @@
   flex-direction: row;
   justify-content: space-evenly; }
   #taskbox div {
-    width: 40%; }
+    width: 30%; }
     #taskbox div span {
       background-color: pink;
       padding: 2%; }
@@ -35,6 +35,10 @@
     width: 90%;
     margin-left: 10%; }
     #taskbox #discbox label {
-      font-size: x-large; }
+      font-size: x-large;
+      width: auto;
+      overflow: visible; }
+    #taskbox #discbox .form-check-label {
+      width: 300%; }
   #taskbox input[type=checkbox]:checked + label.strikethrough {
     text-decoration: line-through; }
