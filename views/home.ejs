@@ -3,7 +3,7 @@
     <div id="mainForm">
         <form action="" id="taskform">
             <div class="row">
-
+        <!-- Description input -->
                 <div class="col">
                     <label for="description">Description</label>
                     <input type="text" placeholder="What do you need to do" name="description" id="description">
@@ -12,9 +12,10 @@
             </div>
 
             <div class="row">
-
+                
                 <div class="col">
-        
+
+        <!-- Category Selection -->
                     <label for="category">Category</label>
                     <select class="form-control form-control-lg" id="category" name="category">
                         <option>Personal</option>
@@ -25,13 +26,14 @@
                     </select>
                 
                 </div>
-
+        <!-- Date Input -->
                 <div class="col">
                     <label for="date">Date</label>
                     <input type="date" id="date" name="date">
                 </div>
                 <input type="hidden" name='user' value="<%=locals.user.id%>">
             </div>
+        <!-- buttons -->
                 <div id="buttons">
                     <button type="submit" id="addtask" class="btn btn-dark"><i class="fas fa-plus"></i> Add Task</button>                    
                     <button type="button" id='deltask' class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete Selected</button>

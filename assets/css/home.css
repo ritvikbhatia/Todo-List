@@ -39,6 +39,6 @@
       width: auto;
       overflow: visible; }
     #taskbox #discbox .form-check-label {
-      width: 300%; }
+      width: 400%; }
   #taskbox input[type=checkbox]:checked + label.strikethrough {
     text-decoration: line-through; }
