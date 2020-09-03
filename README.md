@@ -7,7 +7,7 @@ completly scalable, based on node JS
 <br>
 This code follows MVC pattern to make it more scalable:
 
-/routes - containes all the routes.
+/routes - containes all the routes .
 
 /assets - static js css and image files.
 
